@@ -57,74 +57,7 @@ This design avoids busy-waiting and prioritizes **throughput and CPU efficiency*
 
 Example output from a local run:
 
-
-- The producer continuously generates orders
-- Worker threads process orders in parallel
-- Processing stops gracefully once all orders are handled
-
----
-
-## 🛠️ Tech Stack
-
-- **Language:** C++17
-- **Concurrency:** `std::thread`
-- **Synchronization:** `std::mutex`, `std::condition_variable`, `std::atomic`
-- **Data Structures:** STL `queue`
-- **Timing:** `std::chrono`
-
----
-
-## 🧪 Processing Design
-
-- A single producer thread generates a fixed number of orders
-- A configurable number of worker threads process orders concurrently
-- The queue blocks worker threads using a condition variable when no work is available
-- A clean shutdown mechanism ensures workers exit safely after all orders are processed
-
-This design avoids busy-waiting and prioritizes **throughput and CPU efficiency**.
-
----
-
-## 📊 Sample Output
-
-Example output from a local run:
-
-
-- The producer continuously generates orders
-- Worker threads process orders in parallel
-- Processing stops gracefully once all orders are handled
-
----
-
-## 🛠️ Tech Stack
-
-- **Language:** C++17
-- **Concurrency:** `std::thread`
-- **Synchronization:** `std::mutex`, `std::condition_variable`, `std::atomic`
-- **Data Structures:** STL `queue`
-- **Timing:** `std::chrono`
-
----
-
-## 🧪 Processing Design
-
-- A single producer thread generates a fixed number of orders
-- A configurable number of worker threads process orders concurrently
-- The queue blocks worker threads using a condition variable when no work is available
-- A clean shutdown mechanism ensures workers exit safely after all orders are processed
-
-This design avoids busy-waiting and prioritizes **throughput and CPU efficiency**.
-
----
-
-## 📊 Sample Output
-
-Example output from a local run:
-
 ![Benchmark Output](images/output.png)
-
-Processed Orders: 10000
-Time Taken: 17 ms
 
 
 > Execution time varies depending on hardware, number of worker threads,
@@ -160,3 +93,7 @@ Compile with optimizations enabled:
 ```bash
 g++ -O2 -std=c++17 main.cpp -pthread
 ./a.out
+
+
+Processed Orders: 10000
+Time Taken: 17 ms
